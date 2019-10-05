@@ -1,5 +1,12 @@
 <template>
   <section class="container">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+
     <div>
       <h1 class="title">biblio-front</h1>
       <h2 class="subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
@@ -9,6 +16,35 @@
         <a href="/register" target="_blank" class="button--grey">Register</a>
       </div>
 
+      <div>
+        <b-card-group deck>
+          <b-card>
+            <b-card-text>
+              <p>
+                <i class="fas fa-hands-helping fa-10x"></i>
+              </p>This is a wider card with supporting text below as a natural lead-in to additional content.
+              This content is a little bit longer.
+            </b-card-text>
+          </b-card>
+
+          <b-card>
+            <b-card-text>
+              <p>
+                <i class="fas fa-utensils fa-10x"></i>
+              </p>This card has supporting text below as a natural lead-in to additional content.
+            </b-card-text>
+          </b-card>
+
+          <b-card>
+            <b-card-text>
+              <p>
+                <i class="fas fa-trash-alt fa-10x"></i>
+              </p>This is a wider card with supporting text below as a natural lead-in to additional content.
+              This card has even longer content than the first to show that equal height action.
+            </b-card-text>
+          </b-card>
+        </b-card-group>
+      </div>
 
       <div>
         <b-card-group deck>
@@ -19,7 +55,7 @@
             img-top
           >
             <b-card-text class="text-justify">
-              Somos la primera generación que puede acabar con el hambre en el mundo. Con tu ayuda reducimos el riesgo y salvamos el mayor número de personas
+              <mdb-icon fab icon="accessible-icon" />Somos la primera generación que puede acabar con el hambre en el mundo. Con tu ayuda reducimos el riesgo y salvamos el mayor número de personas
             </b-card-text>
             <b-button href="https:\\www.accioncontraelhambre.org" variant="primary">Ayudanos</b-button>
             <template v-slot:footer>
@@ -33,7 +69,9 @@
             img-alt="Image"
             img-top
           >
-            <b-card-text class="text-justify">Hunger can be defeated. Its causes are known, so are the solutions. This is why Welthungerhilfe has taken on the goal of doing all it can to end hunger: “Zero hunger wherever we work”.</b-card-text>
+            <b-card-text
+              class="text-justify"
+            >Hunger can be defeated. Its causes are known, so are the solutions. This is why Welthungerhilfe has taken on the goal of doing all it can to end hunger: “Zero hunger wherever we work”.</b-card-text>
             <b-button href="welthungerhilfe.org" variant="primary">Ayudanos</b-button>
             <template v-slot:footer>
               <small class="text-muted">Last updated 30 mins ago</small>
@@ -46,21 +84,47 @@
             img-alt="Image"
             img-top
           >
-            <b-card-text class="text-justify">
-              Estudiantado de cuarto de Publicidad y Relaciones Públicas de la Universitat Jaume I, ha organizado un evento benéfico para la ONG Acción contra el Hambre.
-            </b-card-text>
-            <b-button href="https://www.vivecastellon.com/noticiario/no-hunger-evento-benefico-para-la-ong-accion-contra-el-hambre-30118.html" variant="primary">Ayudanos</b-button>
+            <b-card-text
+              class="text-justify"
+            >Estudiantado de cuarto de Publicidad y Relaciones Públicas de la Universitat Jaume I, ha organizado un evento benéfico para la ONG Acción contra el Hambre.</b-card-text>
+            <b-button
+              href="https://www.vivecastellon.com/noticiario/no-hunger-evento-benefico-para-la-ong-accion-contra-el-hambre-30118.html"
+              variant="primary"
+            >Ayudanos</b-button>
             <template v-slot:footer>
               <small class="text-muted">Last updated 3 mins ago</small>
             </template>
           </b-card>
         </b-card-group>
       </div>
+    </div>
 
-
+    <div id="app">
+      <l-map :zoom="zoom" :center="center">
+        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-marker :lat-lng="marker"></l-marker>
+      </l-map>
     </div>
   </section>
 </template>
+
+<script>
+  var { LMap, LTileLayer, LMarker } = Vue2Leaflet;
+
+  new Vue({
+    el: '#app',
+    components: { LMap, LTileLayer, LMarker },
+    data() {
+      return {
+        zoom:13,
+        center: L.latLng(47.413220, -1.219482),
+        url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        marker: L.latLng(47.413220, -1.219482),
+      }
+    }
+  });
+</script>
 
 <script>
 export default {
