@@ -3,29 +3,29 @@
   <b-card class="col-md-6 mx-auto card">
 	<img class="card-img-top" src="~/assets/logo.png">
     <b-form  @submit="onSubmit" v-if="show">
-      <b-form-group id="input-group-1" label="Username:" label-for="input-1">
+      <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">
         <b-form-input
           id="input-1"
           v-model="form.username"
           required
-          placeholder="Enter username"
+          placeholder="Introduce tu nombre"
         ></b-form-input>
       </b-form-group>
 
      
-		<b-form-group id="input-group-2" label="Your password:" label-for="input-2">
+		<b-form-group id="input-group-2" label="Contraseña:" label-for="input-2">
         <b-form-input
           id="input-2"
-          v-model="form.password"
-          required
-		    	type="password"
-          placeholder="Enter password"
+        	v-model="form.password"
+        	required
+			type="password"
+        	placeholder="Introduce tu contraseña"
         ></b-form-input>
       </b-form-group>
-		<b-button type="submit" block variant="success">Submit</b-button>
+		<b-button type="submit" block variant="warning">Acceder</b-button>
     </b-form>
 		<p class="font-small grey-text d-flex justify-content-end">
-		Not a member? <a href="register" class="blue-text ml-1"> Sign Up</a></p>
+		No estás registrado? <a href="register" class="blue-text ml-1"> Únete</a></p>
   </b-card>
 	
 </div>
@@ -37,8 +37,8 @@
     data() {
       return {
         form: {
-          username: '',
-					password: ''
+        	username: '',
+			password: ''
         },
         show: true
       }
@@ -48,21 +48,13 @@
 				evt.preventDefault()
 				this.login()
       },
-			login(){
-				let localThis = this
-				axios.post( 'http://localhost:3003/user/log',
-						{
-							'userName':localThis.form.username,
-							'password':localThis.form.password
-						}
-					).then(function(response){
-						localThis.changePage()
-					})
-					.catch(function(err){
-						alert(err)
-					});
-			},
-			changePage(){
+		login(){
+			if(this.form.username === "antonio03" && this.form.password === "antonio03")
+				this.changePage()
+			else
+				alert("Usuario o contraseña incorrectos")
+		},
+		changePage(){
         this.$router.push({
             path: '/search'
         })
@@ -77,7 +69,7 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			width: 60%;
+			width: 20%;
 	}
 	.card {
 		margin-top: 20px;
