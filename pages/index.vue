@@ -12,9 +12,9 @@
         <h1 class="title" id="banner-title">biblio-front</h1>
         <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
         <div class="links">
-          <a href="/login" target="_blank" class="button--grey">Login</a>
+          <a href="/login" class="button--grey">Login</a>
           - OR -
-          <a href="/register" target="_blank" class="button--grey">Register</a>
+          <a href="/register" class="button--grey">Register</a>
         </div>
       </div>
 
@@ -210,6 +210,6 @@ export default {
 }
 
 .c-card {
-  box-shadow: 0 0 15px 8px;
+  box-shadow: 0 0 10px 1px;
 }
 </style>
