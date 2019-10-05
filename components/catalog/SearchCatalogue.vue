@@ -26,7 +26,8 @@
             :description=offer.description 
             :location=offer.location 
             :labels=offer.labels
-            :servings=offer.servings>
+            :servings=offer.servings
+            :coordinates=offer.coordinates>
         </Offer>
     </b-card-group>
 </div>
@@ -100,6 +101,7 @@ export default {
       "status":"pending",
       "description":"Este es un plato de pollo con arroz que he hecho hoy para mi familia. Como mi abuela ha muerto repentinamente sobra 1 plato, ven ya a por el :)",
       "labels":["hola","adios"],
+      "coordinates":[39.1111, -6.89798],
       "servings": 3
     })
     this.offers.push({
@@ -109,6 +111,7 @@ export default {
       "status":"pending",
       "description":"Esta es una antigua receta familiar de patatas a la riojana, me la enseñó mi abuela tras morir",
       "labels":["sin lactosa","celiaco"],
+      "coordinates":[39.1111, -6.89798],
       "servings": 1
     })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)

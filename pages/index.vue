@@ -11,9 +11,9 @@
         <h1 class="title" id="banner-title">biblio-front</h1>
         <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
         <div class="links">
-          <a href="/login" target="_blank" class="button--grey">Acceder</a>
+          <a href="/login" class="button--grey">Acceder</a>
           - OR -
-          <a href="/register" target="_blank" class="button--grey">Registro</a>
+          <a href="/register" class="button--grey">Registrarse</a>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
             <b-card-text class="text-justify">
               <mdb-icon fab icon="accessible-icon" />Somos la primera generación que puede acabar con el hambre en el mundo. Con tu ayuda reducimos el riesgo y salvamos el mayor número de personas
             </b-card-text>
-            <b-button href="https:\\www.accioncontraelhambre.org" variant="primary">Ayudanos</b-button>
+            <b-button href="https:\\www.accioncontraelhambre.org" variant="primary">Ayúdanos</b-button>
             <template v-slot:footer>
               <small class="text-muted">Última actualización 53 mins ago</small>
             </template>
@@ -71,7 +71,7 @@
             <b-card-text
               class="text-justify"
             >El hambre puede ser derrotado. Sus causas son conocidas, sus soluciones tambien. Es por esto que Welthungerhilfe tiene el objetivo de hacer todo lo que puede para acabar con el hambre: “Zero hunger wherever we work”.</b-card-text>
-            <b-button href="welthungerhilfe.org" variant="primary">Ayudanos</b-button>
+            <b-button href="welthungerhilfe.org" variant="primary">Ayúdanos</b-button>
             <template v-slot:footer>
               <small class="text-muted">Última actualización 45 mins ago</small>
             </template>
@@ -89,7 +89,7 @@
             <b-button
               href="https://www.vivecastellon.com/noticiario/no-hunger-evento-benefico-para-la-ong-accion-contra-el-hambre-30118.html"
               variant="primary"
-            >Ayudanos</b-button>
+            >Más información</b-button>
             <template v-slot:footer>
               <small class="text-muted">Última actualización 35 mins ago</small>
             </template>
@@ -210,6 +210,6 @@ export default {
 }
 
 .c-card {
-  box-shadow: 0 0 15px 8px;
+  box-shadow: 0 0 10px 1px;
 }
 </style>
