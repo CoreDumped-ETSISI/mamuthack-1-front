@@ -117,7 +117,8 @@
             'servings':localThis.form.servings,
             'contains':localThis.selected,
             'coordinates': [41.500242, 2.111834],
-            'labels': localThis.getTags
+            'labels': localThis.getTags,
+            'publisher': localStorage.user
           }
         ).then(function(response){
           localThis.changePage()

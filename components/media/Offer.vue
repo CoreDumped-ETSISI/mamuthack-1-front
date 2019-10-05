@@ -16,6 +16,7 @@
           {{ this.description }}
         </b-card-text>
          <b-list-group flush>
+          <b-list-group-item><strong>Publicado por: </strong>{{ publisher }}</b-list-group-item>
           <b-list-group-item><strong>Raciones: </strong>{{ servings }}</b-list-group-item>
           <b-list-group-item><strong>Contiene: </strong>
             <b-badge 
@@ -65,7 +66,8 @@ export default {
         title: String,
         servings: Number,
         coordinates: Array,
-        contains: Array
+        contains: Array,
+        publisher: String
     },
 
     methods: {

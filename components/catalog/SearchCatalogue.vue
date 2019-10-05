@@ -28,7 +28,8 @@
             :labels=offer.labels
             :servings=offer.servings
             :coordinates=offer.coordinates
-            :contains=offer.contains>
+            :contains=offer.contains
+            :publisher=offer.publisher>
         </Offer>
     </b-card-group>
 </div>
@@ -113,7 +114,8 @@ export default {
       "contains":["frutos secos","marisco"],
       "labels":["pollo","arroz","receta"],
       "coordinates":[39.1111, -6.89798],
-      "servings": 3
+      "servings": 3,
+      "publisher": "Mamuthack UAB"
     })
     this.offers.push({
       "id":"123456",
@@ -124,7 +126,8 @@ export default {
       "contains":["lacteos","carne"],
       "labels":["patatas","pimenton","carne"],
       "coordinates":[39.1111, -6.89798],
-      "servings": 1
+      "servings": 1,
+      "publisher": "SandroBlue"
     })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)
     .then(response => {
