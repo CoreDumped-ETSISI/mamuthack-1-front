@@ -18,9 +18,9 @@
         </div>
       </div>
 
-      <div class="news">
+      <div class="info">
         <b-card-group deck>
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-hands-helping fa-10x"></i>
@@ -29,7 +29,7 @@
             </b-card-text>
           </b-card>
 
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-utensils fa-10x"></i>
@@ -37,7 +37,7 @@
             </b-card-text>
           </b-card>
 
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-trash-alt fa-10x"></i>
@@ -48,9 +48,9 @@
         </b-card-group>
       </div>
 
-      <div>
+      <div class="news">
         <b-card-group deck>
-          <b-card
+          <b-card class="c-card"
             title="Acción contra el hambre"
             img-src="https://i.imgur.com/9qLjNnI.jpg"
             img-alt="Image"
@@ -65,7 +65,7 @@
             </template>
           </b-card>
 
-          <b-card
+          <b-card class="c-card"
             title="Welt hunger hilfe"
             img-src="https://i.imgur.com/AyP6q3B.jpg"
             img-alt="Image"
@@ -80,7 +80,7 @@
             </template>
           </b-card>
 
-          <b-card
+          <b-card class="c-card"
             title="No hunger, evento benéfico para la ONG Acción contra el Hambre"
             img-src="https://i.imgur.com/Q6megSM.jpg"
             img-alt="Image"
@@ -100,33 +100,9 @@
         </b-card-group>
       </div>
     </div>
-
-    <div id="app">
-      <l-map :zoom="zoom" :center="center">
-        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :lat-lng="marker"></l-marker>
-      </l-map>
-    </div>
   </section>
 </template>
 
-<script>
-  var { LMap, LTileLayer, LMarker } = Vue2Leaflet;
-
-  new Vue({
-    el: '#app',
-    components: { LMap, LTileLayer, LMarker },
-    data() {
-      return {
-        zoom:13,
-        center: L.latLng(47.413220, -1.219482),
-        url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-        attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        marker: L.latLng(47.413220, -1.219482),
-      }
-    }
-  });
-</script>
 
 <script>
 export default {
@@ -136,7 +112,7 @@ export default {
     changePage() {
       console.log("Hey");
       this.$router.push({
-        name: "patata",
+        name: "login",
         params: { name: "world" }
       });
     }
@@ -226,5 +202,14 @@ export default {
 .news {
   margin-bottom: 10%;
   width: 90vw;
+}
+
+.info {
+  margin-bottom: 5%;
+  width: 90vw;
+}
+
+.c-card {
+  box-shadow: 0 0 15px 8px;
 }
 </style>

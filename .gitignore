@@ -61,3 +61,5 @@ typings/
 .next
 # nuxt please, stop
 .nuxt/
+
+.idea
