@@ -85,8 +85,13 @@ export default {
           "publisher": this.publisher
         }
         localStorage.setItem('pedido', JSON.stringify(nuevoPedido));
-        var pedido = JSON.parse(localStorage.getItem('pedido'));
-        console.log(pedido)
+        //var pedido = JSON.parse(localStorage.getItem('pedido'));
+        this.changePage()
+      },
+      changePage(){
+        this.$router.push({
+            path: '/pendingPage'
+        })
       }
     }
 }
