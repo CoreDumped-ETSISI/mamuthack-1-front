@@ -6,7 +6,7 @@
         <b-button class="topmargin" variant="warning" v-on:click="claim()">Descarga</b-button>
       </b-col>
       <b-col md="7">
-        <b-card-body :title="title">
+        <b-card-body :title="title" :sub-title="getCoordinates">
         <b-badge 
           v-for="badge in labels"
           v-bind:key="badge"
@@ -17,6 +17,13 @@
         </b-card-text>
          <b-list-group flush>
           <b-list-group-item><strong>Raciones: </strong>{{ servings }}</b-list-group-item>
+          <b-list-group-item><strong>Contiene: </strong>
+            <b-badge 
+              v-for="badge in contains"
+              v-bind:key="badge"
+              variant="danger">{{badge}}
+            </b-badge>
+          </b-list-group-item>
         </b-list-group>
         </b-card-body>
       </b-col>
@@ -45,6 +52,9 @@ export default {
       getTag(){
         return this.languages[this.language]
       },
+      getCoordinates(){
+        return this.coordinates.join(", ")
+      }
     },
     props: {
         id: String,
@@ -53,7 +63,9 @@ export default {
         status: String,
         labels: Array,
         title: String,
-        servings: Number
+        servings: Number,
+        coordinates: Array,
+        contains: Array
     },
 
     methods: {
