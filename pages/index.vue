@@ -11,9 +11,9 @@
         <h1 class="title" id="banner-title">biblio-front</h1>
         <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
         <div class="links">
-          <a href="/login" target="_blank" class="button--grey">Login</a>
+          <a href="/login" target="_blank" class="button--grey">Acceder</a>
           - OR -
-          <a href="/register" target="_blank" class="button--grey">Register</a>
+          <a href="/register" target="_blank" class="button--grey">Registro</a>
         </div>
       </div>
 
@@ -23,8 +23,7 @@
             <b-card-text>
               <p>
                 <i class="fas fa-hands-helping fa-10x"></i>
-              </p>This is a wider card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
+              </p>Textp para manos
             </b-card-text>
           </b-card>
 
@@ -32,7 +31,7 @@
             <b-card-text>
               <p>
                 <i class="fas fa-utensils fa-10x"></i>
-              </p>This card has supporting text below as a natural lead-in to additional content.
+              </p>Texto para utensilios
             </b-card-text>
           </b-card>
 
@@ -40,8 +39,7 @@
             <b-card-text>
               <p>
                 <i class="fas fa-trash-alt fa-10x"></i>
-              </p>This is a wider card with supporting text below as a natural lead-in to additional content.
-              This card has even longer content than the first to show that equal height action.
+              </p>Texto de basura
             </b-card-text>
           </b-card>
         </b-card-group>
@@ -60,7 +58,7 @@
             </b-card-text>
             <b-button href="https:\\www.accioncontraelhambre.org" variant="primary">Ayudanos</b-button>
             <template v-slot:footer>
-              <small class="text-muted">Last updated 53 mins ago</small>
+              <small class="text-muted">Última actualización 53 mins ago</small>
             </template>
           </b-card>
 
@@ -72,10 +70,10 @@
           >
             <b-card-text
               class="text-justify"
-            >Hunger can be defeated. Its causes are known, so are the solutions. This is why Welthungerhilfe has taken on the goal of doing all it can to end hunger: “Zero hunger wherever we work”.</b-card-text>
+            >El hambre puede ser derrotado. Sus causas son conocidas, sus soluciones tambien. Es por esto que Welthungerhilfe tiene el objetivo de hacer todo lo que puede para acabar con el hambre: “Zero hunger wherever we work”.</b-card-text>
             <b-button href="welthungerhilfe.org" variant="primary">Ayudanos</b-button>
             <template v-slot:footer>
-              <small class="text-muted">Last updated 45 mins ago</small>
+              <small class="text-muted">Última actualización 45 mins ago</small>
             </template>
           </b-card>
 
@@ -93,7 +91,7 @@
               variant="primary"
             >Ayudanos</b-button>
             <template v-slot:footer>
-              <small class="text-muted">Last updated 35 mins ago</small>
+              <small class="text-muted">Última actualización 35 mins ago</small>
             </template>
           </b-card>
         </b-card-group>

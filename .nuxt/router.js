@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
-import scrollBehavior from './router.scrollBehavior.js'
 
-<<<<<<< Updated upstream
 const _fd3556ee = () => interopDefault(import('..\\pages\\bookManagement.vue' /* webpackChunkName: "pages_bookManagement" */))
 const _47b038da = () => interopDefault(import('..\\pages\\createOffer.vue' /* webpackChunkName: "pages_createOffer" */))
 const _5a3cd008 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
@@ -12,59 +10,73 @@ const _38e6af60 = () => interopDefault(import('..\\pages\\register.vue' /* webpa
 const _6c78fdb6 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _34c15604 = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
 const _0939f4e5 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
-=======
-const _1ea4284b = () => interopDefault(import('../pages/bookManagement.vue' /* webpackChunkName: "pages/bookManagement" */))
-const _f3a9bc0c = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _2e49892c = () => interopDefault(import('../pages/offerCatalogue.vue' /* webpackChunkName: "pages/offerCatalogue" */))
-const _13b7fca2 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
-const _7fab36e7 = () => interopDefault(import('../pages/search.vue' /* webpackChunkName: "pages/search" */))
-const _c8f1ea80 = () => interopDefault(import('../pages/upload.vue' /* webpackChunkName: "pages/upload" */))
-const _86f9023a = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
->>>>>>> Stashed changes
 
 Vue.use(Router)
 
-export const routerOptions = {
-  mode: 'history',
-  base: decodeURI('/'),
-  linkActiveClass: 'nuxt-link-active',
-  linkExactActiveClass: 'nuxt-link-exact-active',
-  scrollBehavior,
+if (process.client) {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual'
 
-  routes: [{
-    path: "/bookManagement",
-    component: _1ea4284b,
-    name: "bookManagement"
-  }, {
-    path: "/login",
-    component: _f3a9bc0c,
-    name: "login"
-  }, {
-    path: "/offerCatalogue",
-    component: _2e49892c,
-    name: "offerCatalogue"
-  }, {
-    path: "/register",
-    component: _13b7fca2,
-    name: "register"
-  }, {
-    path: "/search",
-    component: _7fab36e7,
-    name: "search"
-  }, {
-    path: "/upload",
-    component: _c8f1ea80,
-    name: "upload"
-  }, {
-    path: "/",
-    component: _86f9023a,
-    name: "index"
-  }],
+    // reset scrollRestoration to auto when leaving page, allowing page reload
+    // and back-navigation from other pages to use the browser to restore the
+    // scrolling position.
+    window.addEventListener('beforeunload', () => {
+      window.history.scrollRestoration = 'auto'
+    })
 
-  fallback: false
+    // Setting scrollRestoration to manual again when returning to this page.
+    window.addEventListener('load', () => {
+      window.history.scrollRestoration = 'manual'
+    })
+  }
+}
+const scrollBehavior = function (to, from, savedPosition) {
+  // if the returned position is falsy or an empty object,
+  // will retain current scroll position.
+  let position = false
+
+  // if no children detected and scrollToTop is not explicitly disabled
+  if (
+    to.matched.length < 2 &&
+    to.matched.every(r => r.components.default.options.scrollToTop !== false)
+  ) {
+    // scroll to the top of the page
+    position = { x: 0, y: 0 }
+  } else if (to.matched.some(r => r.components.default.options.scrollToTop)) {
+    // if one of the children has scrollToTop option set to true
+    position = { x: 0, y: 0 }
+  }
+
+  // savedPosition is only available for popstate navigations (back button)
+  if (savedPosition) {
+    position = savedPosition
+  }
+
+  return new Promise((resolve) => {
+    // wait for the out transition to complete (if necessary)
+    window.$nuxt.$once('triggerScroll', () => {
+      // coords will be used if no selector is provided,
+      // or if the selector didn't match any element.
+      if (to.hash) {
+        let hash = to.hash
+        // CSS.escape() is not supported with IE and Edge.
+        if (typeof window.CSS !== 'undefined' && typeof window.CSS.escape !== 'undefined') {
+          hash = '#' + window.CSS.escape(hash.substr(1))
+        }
+        try {
+          if (document.querySelector(hash)) {
+            // scroll to anchor by returning the selector
+            position = { selector: hash }
+          }
+        } catch (e) {
+          console.warn('Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).')
+        }
+      }
+      resolve(position)
+    })
+  })
 }
 
-<<<<<<< Updated upstream
 export function createRouter() {
   return new Router({
     mode: 'history',
@@ -109,8 +121,4 @@ export function createRouter() {
 
     fallback: false
   })
-=======
-export function createRouter () {
-  return new Router(routerOptions)
->>>>>>> Stashed changes
 }
