@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import catalog from '~/components/catalog/SearchCatalog.vue'
+import catalog from '~/components/catalog/SearchCatalogue.vue'
 
 export default {
   components: {

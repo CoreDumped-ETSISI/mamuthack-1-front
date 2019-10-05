@@ -1,7 +1,7 @@
 <template>
   <div>
     <topnavbar/>
-    <nuxt />
+    <nuxt class="main-container"/>
   </div>
 </template>
 
@@ -63,4 +63,7 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+  .main-container {
+    margin-top: 75px;
+  }
 </style>

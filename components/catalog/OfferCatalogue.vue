@@ -43,6 +43,15 @@ export default {
       "labels":["hola","adios"],
       "servings": 3
     })
+    this.offers.push({
+      "id":"123456",
+      "title":"Patatas a la riojana",
+      "photo":"https://cocina-casera.com/wp-content/uploads/2015/02/receta-patatas-riojana.jpg",
+      "status":"pending",
+      "description":"Esta es una antigua receta familiar de patatas a la riojana, me la enseñó mi abuela tras morir",
+      "labels":["sin lactosa","celiaco"],
+      "servings": 1
+    })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)
     .then(response => {
       this.posts = response.data.books

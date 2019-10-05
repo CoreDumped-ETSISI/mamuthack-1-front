@@ -31,7 +31,6 @@ export default {
     
     data(){
         return {
-            description: 'Descripción por defecto, quizá demasiado corta',
             statuses: ['pending', 'accepted', 'denied', 'erased'],
             selected: this.status,
             options: [
