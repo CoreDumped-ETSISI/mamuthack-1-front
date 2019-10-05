@@ -7,17 +7,19 @@
       crossorigin="anonymous"
     />
     <div>
-      <h1 class="title">biblio-front</h1>
-      <h2 class="subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
-      <div class="links">
-        <a href="/login" target="_blank" class="button--grey">Login</a>
-        - OR -
-        <a href="/register" target="_blank" class="button--grey">Register</a>
+      <div id="banner" class="banner">
+        <h1 class="title" id="banner-title">biblio-front</h1>
+        <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
+        <div class="links">
+          <a href="/login" target="_blank" class="button--grey">Login</a>
+          - OR -
+          <a href="/register" target="_blank" class="button--grey">Register</a>
+        </div>
       </div>
 
-      <div>
+      <div class="info">
         <b-card-group deck>
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-hands-helping fa-10x"></i>
@@ -26,7 +28,7 @@
             </b-card-text>
           </b-card>
 
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-utensils fa-10x"></i>
@@ -34,7 +36,7 @@
             </b-card-text>
           </b-card>
 
-          <b-card>
+          <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-trash-alt fa-10x"></i>
@@ -45,9 +47,9 @@
         </b-card-group>
       </div>
 
-      <div>
+      <div class="news">
         <b-card-group deck>
-          <b-card
+          <b-card class="c-card"
             title="Acción contra el hambre"
             img-src="https://i.imgur.com/9qLjNnI.jpg"
             img-alt="Image"
@@ -62,7 +64,7 @@
             </template>
           </b-card>
 
-          <b-card
+          <b-card class="c-card"
             title="Welt hunger hilfe"
             img-src="https://i.imgur.com/AyP6q3B.jpg"
             img-alt="Image"
@@ -77,7 +79,7 @@
             </template>
           </b-card>
 
-          <b-card
+          <b-card class="c-card"
             title="No hunger, evento benéfico para la ONG Acción contra el Hambre"
             img-src="https://i.imgur.com/Q6megSM.jpg"
             img-alt="Image"
@@ -116,7 +118,25 @@ export default {
         params: { name: "world" }
       });
     }
-  }
+  },
+    mounted() {
+      window.addEventListener("resize", function () {
+        var title = document.getElementById('banner-title');
+        var subtitle = document.getElementById('banner-subtitle');
+        var width = window.innerWidth;
+        if(width <= 750) {
+            title.classList.remove('big-title');
+            title.classList.add('small-title');
+            subtitle.classList.remove('big-subtitle');
+            subtitle.classList.add('small-subtitle');
+        } else {
+            title.classList.remove('small-title');
+            title.classList.add('big-title');
+            subtitle.classList.remove('small-subtitle');
+            subtitle.classList.add('big-subtitle');
+        }
+      });
+    }
 };
 </script>
 
@@ -140,6 +160,14 @@ export default {
   letter-spacing: 1px;
 }
 
+.big-title {
+  font-size: 100px;
+}
+
+.small-title {
+  font-size: 60px;
+}
+
 .subtitle {
   font-weight: 300;
   font-size: 42px;
@@ -148,11 +176,42 @@ export default {
   padding-bottom: 15px;
 }
 
+.big-subtitle {
+  font-size: 42px;
+}
+
+.small-subtitle {
+  font-size: 28px;
+}
+
 .links {
   padding-top: 15px;
 }
 
 .links a {
   margin: 0 15px;
+}
+
+.banner {
+  background: rgba(0, 0, 0, 0.16);
+  width: 100%;
+  margin-bottom: 15%;
+  padding: 50px 15px 100px;
+  margin-top: 15%;
+  box-shadow: 0 0 15px 8px;
+}
+
+.news {
+  margin-bottom: 10%;
+  width: 90vw;
+}
+
+.info {
+  margin-bottom: 5%;
+  width: 90vw;
+}
+
+.c-card {
+  box-shadow: 0 0 15px 8px;
 }
 </style>
