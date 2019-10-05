@@ -6,7 +6,6 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
-
     <div>
       <h1 class="title">biblio-front</h1>
       <h2 class="subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
@@ -74,7 +73,7 @@
             >Hunger can be defeated. Its causes are known, so are the solutions. This is why Welthungerhilfe has taken on the goal of doing all it can to end hunger: “Zero hunger wherever we work”.</b-card-text>
             <b-button href="welthungerhilfe.org" variant="primary">Ayudanos</b-button>
             <template v-slot:footer>
-              <small class="text-muted">Last updated 30 mins ago</small>
+              <small class="text-muted">Last updated 45 mins ago</small>
             </template>
           </b-card>
 
@@ -92,7 +91,7 @@
               variant="primary"
             >Ayudanos</b-button>
             <template v-slot:footer>
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">Last updated 35 mins ago</small>
             </template>
           </b-card>
         </b-card-group>
@@ -100,31 +99,57 @@
     </div>
 
     <div id="app">
-      <l-map :zoom="zoom" :center="center">
-        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :lat-lng="marker"></l-marker>
+      <l-map :zoom="10" :center="[59.93428, 30.335098]" style="height: 500px; width: 500px">
+        <l-tile-layer
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+          attribution="&copy; <a href='http://osm.org/copyrighte'>OpenStreetMap</a> contributors"
+        />
+        <v-marker-cluster>
+          <l-marker :lat-lng="[59.94729558555478, 30.411314964294437]" :icon="defaultIcon" />
+          <l-marker :lat-lng="[59.9337277687683, 30.357758563477553]" :icon="defaultIcon" />
+        </v-marker-cluster>
       </l-map>
     </div>
   </section>
 </template>
 
-<script>
-  var { LMap, LTileLayer, LMarker } = Vue2Leaflet;
 
-  new Vue({
-    el: '#app',
-    components: { LMap, LTileLayer, LMarker },
-    data() {
-      return {
-        zoom:13,
-        center: L.latLng(47.413220, -1.219482),
-        url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-        attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        marker: L.latLng(47.413220, -1.219482),
-      }
-    }
-  });
+
+<script>
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import L from "leaflet";
+import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
+import "./assets/leaflet.css";
+import "./assets/MarkerCluster.css";
+import "./assets/MarkerCluster.Default.css";
+import icon from "./assets/marker-icon-2x.png";
+import iconShadow from "./assets/marker-shadow.png";
+
+export default {
+  name: "App",
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+    "v-marker-cluster": Vue2LeafletMarkerCluster
+  },
+  data() {
+    return {
+      defaultIcon: L.icon({
+        iconUrl: icon,
+        iconSize: [26, 42],
+        iconAnchor: [13, 42],
+        shadowUrl: iconShadow,
+        shadowSize: [41, 41],
+        shadowAnchor: [13, 41]
+      })
+    };
+  }
+};
 </script>
+
+
+
 
 <script>
 export default {
