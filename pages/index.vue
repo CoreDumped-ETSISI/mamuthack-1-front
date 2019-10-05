@@ -9,16 +9,16 @@
       </h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="/login"
           target="_blank"
           class="button--grey"
-        >GitHub</a>
-        <b-button variant="success" v-on:click="changePage()">Change</b-button>
+        >Login</a>
+        - OR -
+        <a
+          href="/register"
+          target="_blank"
+          class="button--grey"
+        >Register</a>
 
       </div>
     </div>
@@ -75,5 +75,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.links a {
+  margin: 0 15px;
 }
 </style>
