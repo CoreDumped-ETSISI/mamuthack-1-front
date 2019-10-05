@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Meta from 'vue-meta'
-import ClientOnly from 'vue-client-only'
-import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
+import NoSsr from './components/no-ssr.js'
 import NuxtChild from './components/nuxt-child.js'
 import NuxtError from './components/nuxt-error.vue'
 import Nuxt from './components/nuxt.js'
@@ -11,29 +10,16 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-<<<<<<< Updated upstream
+<<<<<<< HEAD
 import nuxt_plugin_bootstrapvue_72b10190 from 'nuxt_plugin_bootstrapvue_72b10190' // Source: .\\bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_axios_9ffe8bee from 'nuxt_plugin_axios_9ffe8bee' // Source: .\\axios.js (mode: 'all')
 =======
-import nuxt_plugin_bootstrapvue_260220ec from 'nuxt_plugin_bootstrapvue_260220ec' // Source: ./bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_axios_a922c74a from 'nuxt_plugin_axios_a922c74a' // Source: ./axios.js (mode: 'all')
->>>>>>> Stashed changes
+import nuxt_plugin_bootstrapvue_40ca5590 from 'nuxt_plugin_bootstrapvue_40ca5590' // Source: .\\bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_axios_f6abdfee from 'nuxt_plugin_axios_f6abdfee' // Source: .\\axios.js (mode: 'all')
+>>>>>>> 6068ed51c620a0d9179a6359afbfa052a143fed6
 
-// Component: <ClientOnly>
-Vue.component(ClientOnly.name, ClientOnly)
-
-// TODO: Remove in Nuxt 3: <NoSsr>
-Vue.component(NoSsr.name, {
-  ...NoSsr,
-  render (h, ctx) {
-    if (process.client && !NoSsr._warned) {
-      NoSsr._warned = true
-
-      console.warn(`<no-ssr> has been deprecated and will be removed in Nuxt 3, please use <client-only> instead`)
-    }
-    return NoSsr.render(h, ctx)
-  }
-})
+// Component: <NoSsr>
+Vue.component(NoSsr.name, NoSsr)
 
 // Component: <NuxtChild>
 Vue.component(NuxtChild.name, NuxtChild)
@@ -44,11 +30,17 @@ Vue.component('NChild', NuxtChild)
 // Component: <Nuxt>`
 Vue.component(Nuxt.name, Nuxt)
 
-Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
+// vue-meta configuration
+Vue.use(Meta, {
+  keyName: 'head', // the component option name that vue-meta looks for meta info on.
+  attribute: 'data-n-head', // the attribute name vue-meta adds to the tags it observes
+  ssrAttribute: 'data-n-head-ssr', // the attribute name that lets vue-meta know that meta info has already been server-rendered
+  tagIDKeyName: 'hid' // the property name that vue-meta uses to determine whether to overwrite or append a tag
+})
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
-async function createApp (ssrContext) {
+async function createApp(ssrContext) {
   const router = await createRouter(ssrContext)
 
   // Create Root instance
@@ -57,10 +49,11 @@ async function createApp (ssrContext) {
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
     router,
+
     nuxt: {
       defaultTransition,
       transitions: [ defaultTransition ],
-      setTransitions (transitions) {
+      setTransitions(transitions) {
         if (!Array.isArray(transitions)) {
           transitions = [ transitions ]
         }
@@ -77,20 +70,17 @@ async function createApp (ssrContext) {
         this.$options.nuxt.transitions = transitions
         return transitions
       },
-
       err: null,
       dateErr: null,
-      error (err) {
+      error(err) {
         err = err || null
-        app.context._errored = Boolean(err)
+        app.context._errored = !!err
         err = err ? normalizeError(err) : null
         const nuxt = this.nuxt || this.$options.nuxt
         nuxt.dateErr = Date.now()
         nuxt.err = err
         // Used in src/server.js
-        if (ssrContext) {
-          ssrContext.nuxt.error = err
-        }
+        if (ssrContext) ssrContext.nuxt.error = err
         return err
       }
     },
@@ -112,6 +102,7 @@ async function createApp (ssrContext) {
     route,
     next,
     error: app.nuxt.error.bind(app),
+
     payload: ssrContext ? ssrContext.payload : undefined,
     req: ssrContext ? ssrContext.req : undefined,
     res: ssrContext ? ssrContext.res : undefined,
@@ -120,28 +111,21 @@ async function createApp (ssrContext) {
   })
 
   const inject = function (key, value) {
-    if (!key) {
-      throw new Error('inject(key, value) has no key provided')
-    }
-    if (value === undefined) {
-      throw new Error('inject(key, value) has no value provided')
-    }
-
+    if (!key) throw new Error('inject(key, value) has no key provided')
+    if (typeof value === 'undefined') throw new Error('inject(key, value) has no value provided')
     key = '$' + key
     // Add into app
     app[key] = value
 
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
-    if (Vue[installKey]) {
-      return
-    }
+    if (Vue[installKey]) return
     Vue[installKey] = true
     // Call Vue.use() to install the plugin into vm
     Vue.use(() => {
       if (!Vue.prototype.hasOwnProperty(key)) {
         Object.defineProperty(Vue.prototype, key, {
-          get () {
+          get() {
             return this.$root.$options[key]
           }
         })
@@ -151,7 +135,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
 
-<<<<<<< Updated upstream
+<<<<<<< HEAD
   if (typeof nuxt_plugin_bootstrapvue_72b10190 === 'function') {
     await nuxt_plugin_bootstrapvue_72b10190(app.context, inject)
   }
@@ -159,13 +143,13 @@ async function createApp (ssrContext) {
   if (typeof nuxt_plugin_axios_9ffe8bee === 'function') {
     await nuxt_plugin_axios_9ffe8bee(app.context, inject)
 =======
-  if (typeof nuxt_plugin_bootstrapvue_260220ec === 'function') {
-    await nuxt_plugin_bootstrapvue_260220ec(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_40ca5590 === 'function') {
+    await nuxt_plugin_bootstrapvue_40ca5590(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_a922c74a === 'function') {
-    await nuxt_plugin_axios_a922c74a(app.context, inject)
->>>>>>> Stashed changes
+  if (typeof nuxt_plugin_axios_f6abdfee === 'function') {
+    await nuxt_plugin_axios_f6abdfee(app.context, inject)
+>>>>>>> 6068ed51c620a0d9179a6359afbfa052a143fed6
   }
 
   // If server-side, wait for async component to be resolved first
@@ -187,6 +171,7 @@ async function createApp (ssrContext) {
 
   return {
     app,
+
     router
   }
 }

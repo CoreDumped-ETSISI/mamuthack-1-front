@@ -1,6 +1,7 @@
 <template>
   <div class="backgroundImage">
     <topnavbar/>
+    <nuxt class="top-margin"/>
     <nuxt/>
     <bottomFooter/>
   </div>
@@ -66,10 +67,13 @@ html {
   color: #fff;
   background-color: #35495e;
 }
-
+.top-margin {
+  margin-top: 80px;
+}
+/*
 .backgroundImage {
   background-image: url("https://images.unsplash.com/photo-1562346832-c650dd8cdbe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
   background-repeat: no-repeat;
   background-size: cover;
-}
+}*/
 </style>
