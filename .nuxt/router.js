@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _25eb7a19 = () => interopDefault(import('..\\pages\\bookManagement.vue' /* webpackChunkName: "pages_bookManagement" */))
+const _5efe2803 = () => interopDefault(import('..\\pages\\createOffer.vue' /* webpackChunkName: "pages_createOffer" */))
 const _99c01f28 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _3590dafa = () => interopDefault(import('..\\pages\\offerCatalogue.vue' /* webpackChunkName: "pages_offerCatalogue" */))
 const _9fc77e20 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
@@ -88,6 +89,10 @@ export function createRouter() {
       path: "/bookManagement",
       component: _25eb7a19,
       name: "bookManagement"
+    }, {
+      path: "/createOffer",
+      component: _5efe2803,
+      name: "createOffer"
     }, {
       path: "/login",
       component: _99c01f28,
