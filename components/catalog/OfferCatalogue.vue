@@ -9,7 +9,8 @@
             :status=offer.status 
             :description=offer.description 
             :location=offer.location 
-            :labels=offer.labels>
+            :labels=offer.labels
+            :servings=offer.servings>
         </Offer>
     </b-card-group>
     <div class="overflow-auto">
@@ -40,7 +41,7 @@ export default {
       "status":"pending",
       "description":"Este es un plato de pollo con arroz que he hecho hoy para mi familia. Como mi abuela ha muerto repentinamente sobra 1 plato, ven ya a por el :)",
       "labels":["hola","adios"],
-      "servings":3
+      "servings": 3
     })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)
     .then(response => {

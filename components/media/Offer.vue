@@ -15,6 +15,9 @@
         <b-card-text class="limitLines">
           {{ this.description }}
         </b-card-text>
+         <b-list-group flush>
+          <b-list-group-item><strong>Raciones: </strong>{{ servings }}</b-list-group-item>
+        </b-list-group>
         </b-card-body>
       </b-col>
     </b-row>
@@ -50,7 +53,8 @@ export default {
         photo: String,
         status: String,
         labels: Array,
-        title: String
+        title: String,
+        servings: Number
     },
 
     methods: {
