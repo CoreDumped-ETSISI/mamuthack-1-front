@@ -2,14 +2,17 @@
   <div class="backgroundImage">
     <topnavbar/>
     <nuxt/>
+    <bottomFooter/>
   </div>
 </template>
 
 <script type="text/javascript">
-  import topnavbar from '../components/Navbar.vue'
+  import topnavbar from '../components/Navbar.vue';
+  import bottomFooter from '../components/Footer.vue';
   export default{
     components:{
-      topnavbar // register component
+      topnavbar, // register component
+      bottomFooter
     }
   }
 
