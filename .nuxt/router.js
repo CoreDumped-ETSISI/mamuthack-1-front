@@ -2,16 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-<<<<<<< HEAD
-const _fd3556ee = () => interopDefault(import('..\\pages\\bookManagement.vue' /* webpackChunkName: "pages_bookManagement" */))
-const _47b038da = () => interopDefault(import('..\\pages\\createOffer.vue' /* webpackChunkName: "pages_createOffer" */))
-const _5a3cd008 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _ddea952c = () => interopDefault(import('..\\pages\\offerCatalogue.vue' /* webpackChunkName: "pages_offerCatalogue" */))
-const _38e6af60 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _6c78fdb6 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
-const _34c15604 = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
-const _0939f4e5 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
-=======
 const _25eb7a19 = () => interopDefault(import('..\\pages\\bookManagement.vue' /* webpackChunkName: "pages_bookManagement" */))
 const _5efe2803 = () => interopDefault(import('..\\pages\\createOffer.vue' /* webpackChunkName: "pages_createOffer" */))
 const _99c01f28 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
@@ -20,7 +10,6 @@ const _9fc77e20 = () => interopDefault(import('..\\pages\\register.vue' /* webpa
 const _1d5f9296 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _0d2c0a8e = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
 const _2d0f6556 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
->>>>>>> 6068ed51c620a0d9179a6359afbfa052a143fed6
 
 Vue.use(Router)
 

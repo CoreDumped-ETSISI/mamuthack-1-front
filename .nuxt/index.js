@@ -10,13 +10,8 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-<<<<<<< HEAD
-import nuxt_plugin_bootstrapvue_72b10190 from 'nuxt_plugin_bootstrapvue_72b10190' // Source: .\\bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_axios_9ffe8bee from 'nuxt_plugin_axios_9ffe8bee' // Source: .\\axios.js (mode: 'all')
-=======
 import nuxt_plugin_bootstrapvue_40ca5590 from 'nuxt_plugin_bootstrapvue_40ca5590' // Source: .\\bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_axios_f6abdfee from 'nuxt_plugin_axios_f6abdfee' // Source: .\\axios.js (mode: 'all')
->>>>>>> 6068ed51c620a0d9179a6359afbfa052a143fed6
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -135,21 +130,12 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-<<<<<<< HEAD
-  if (typeof nuxt_plugin_bootstrapvue_72b10190 === 'function') {
-    await nuxt_plugin_bootstrapvue_72b10190(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_axios_9ffe8bee === 'function') {
-    await nuxt_plugin_axios_9ffe8bee(app.context, inject)
-=======
   if (typeof nuxt_plugin_bootstrapvue_40ca5590 === 'function') {
     await nuxt_plugin_bootstrapvue_40ca5590(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_f6abdfee === 'function') {
     await nuxt_plugin_axios_f6abdfee(app.context, inject)
->>>>>>> 6068ed51c620a0d9179a6359afbfa052a143fed6
   }
 
   // If server-side, wait for async component to be resolved first

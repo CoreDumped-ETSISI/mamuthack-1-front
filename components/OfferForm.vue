@@ -31,6 +31,20 @@
         ></b-form-input>
       </b-form-group>
 
+      <b-badge 
+          v-for="badge in getTags"
+          v-bind:key="badge"
+          variant="success">{{badge}}
+      </b-badge>
+      <b-form-group id="input-group-4" label="Etiquetas:" label-for="input-4">
+        <b-form-input
+          id="input-4"
+          v-model="form.tags"
+          required
+          placeholder="Introduce etiquetas separadas por comas"
+        ></b-form-input>
+      </b-form-group>
+
 			<b-form-group label="Mi plato contiene:">
         <b-form-checkbox-group
           id="checkbox-group-1"
@@ -59,7 +73,8 @@
         form: {
           title: '',
 		      description: '',
-          servings: 0
+          servings: 0,
+          tags: ''
         },
         image: '',
         selected: [], // Must be an array reference!
@@ -74,6 +89,17 @@
         show: true
       }
     },
+    computed: {
+      getTags () {
+        var tagArr = this.form.tags.split(",")
+        for(var i=0;i<tagArr.length;i++)
+          tagArr[i] = tagArr[i].trim()
+        if(tagArr[tagArr.length-1] === "")
+          tagArr.pop();
+        return tagArr;
+      }
+    },
+
     methods: {
       onSubmit(evt) {
         evt.preventDefault()
@@ -89,8 +115,9 @@
             'title':localThis.form.title,
             'description':localThis.form.description,
             'servings':localThis.form.servings,
-            'labels':localThis.selected,
-            'location': [41.500242, 2.111834]
+            'contains':localThis.selected,
+            'coordinates': [41.500242, 2.111834],
+            'labels': localThis.getTags
           }
         ).then(function(response){
           localThis.changePage()
@@ -101,7 +128,7 @@
       },
 			changePage(){
         this.$router.push({
-            path: '/login'
+            path: '/search'
         })
       }
     }
