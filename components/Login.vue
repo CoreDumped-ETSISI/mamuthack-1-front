@@ -45,8 +45,8 @@
     },
     methods: {
       onSubmit(evt) {
-				evt.preventDefault()
-				this.login()
+			evt.preventDefault()
+			this.login()
       },
 		login(){
 			if(this.form.username === "antonio03" && this.form.password === "antonio03")
@@ -60,7 +60,7 @@
         })
       }
     }
-	}
+}
 	
 </script>
 

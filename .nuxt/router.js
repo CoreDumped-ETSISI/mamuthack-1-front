@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _a7622bfa = () => interopDefault(import('..\\pages\\bookCatalogue.vue' /* webpackChunkName: "pages_bookCatalogue" */))
 const _25eb7a19 = () => interopDefault(import('..\\pages\\bookManagement.vue' /* webpackChunkName: "pages_bookManagement" */))
 const _99c01f28 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _3590dafa = () => interopDefault(import('..\\pages\\offerCatalogue.vue' /* webpackChunkName: "pages_offerCatalogue" */))
 const _9fc77e20 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _1d5f9296 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _0d2c0a8e = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
@@ -85,10 +85,6 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/bookCatalogue",
-      component: _a7622bfa,
-      name: "bookCatalogue"
-    }, {
       path: "/bookManagement",
       component: _25eb7a19,
       name: "bookManagement"
@@ -96,6 +92,10 @@ export function createRouter() {
       path: "/login",
       component: _99c01f28,
       name: "login"
+    }, {
+      path: "/offerCatalogue",
+      component: _3590dafa,
+      name: "offerCatalogue"
     }, {
       path: "/register",
       component: _9fc77e20,

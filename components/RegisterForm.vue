@@ -2,7 +2,7 @@
 <div>
   <b-card class="col-md-6 mx-auto card">
 		<img class="card-img-top" src="~/assets/logo.png">
-    <b-form  @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form  @submit="onSubmit" v-if="show">
       <b-form-group id="input-group-1" label="Nombre de usuario:" label-for="input-1">
         <b-form-input
           id="input-1"
@@ -74,14 +74,14 @@
     },
     methods: {
       onSubmit(evt) {
-				evt.preventDefault()
-				if(this.form.password === this.form.passwordRepeat)
-					this.register()
-				else
-					alert("Las contraseñas no coinciden")
+        evt.preventDefault()
+        this.register()
       },
 			register(){
-				this.changePage()
+				if(this.form.password === this.form.passwordRepeat)
+					this.changePage()
+				else
+          alert("Las contraseñas no coinciden")
 			},
 			changePage(){
         this.$router.push({

@@ -38,7 +38,7 @@
 
 <script>
 import axios from 'axios';
-import book from '~/components/media/Book2.vue'
+import book from '~/components/media/Offer.vue'
 import Multiselect from 'vue-multiselect'
 
 export default {

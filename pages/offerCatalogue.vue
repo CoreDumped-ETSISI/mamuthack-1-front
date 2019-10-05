@@ -1,13 +1,13 @@
 <template>
-    <catalog></catalog>
+    <catalogue></catalogue>
 </template>
 
 <script>
-import catalog from '~/components/catalog/BookCatalog2.vue'
+import catalogue from '~/components/catalog/OfferCatalogue.vue'
 
 export default {
   components: {
-    catalog
+    catalogue
   }
 }
 </script>
