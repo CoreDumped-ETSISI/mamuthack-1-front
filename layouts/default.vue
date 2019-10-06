@@ -13,9 +13,26 @@
     components:{
       topnavbar, // register component
       bottomFooter
+    },
+    mounted() {
+      window.addEventListener("resize", function () {
+        var title = document.getElementById('banner-title');
+        var subtitle = document.getElementById('banner-subtitle');
+        var width = window.innerWidth;
+        if (width <= 750) {
+          title.classList.remove('big-title');
+          title.classList.add('small-title');
+          subtitle.classList.remove('big-subtitle');
+          subtitle.classList.add('small-subtitle');
+        } else {
+          title.classList.remove('small-title');
+          title.classList.add('big-title');
+          subtitle.classList.remove('small-subtitle');
+          subtitle.classList.add('big-subtitle');
+          }
+        });
     }
   }
-
 </script>
 
 <style>
