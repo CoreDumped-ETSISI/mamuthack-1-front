@@ -1,4 +1,6 @@
 <template>
+<div>
+  <NavbarNotLogged></NavbarNotLogged>
   <section class="container">
     <link
       rel="stylesheet"
@@ -11,7 +13,7 @@
     <div class="background">
       <NoSsr>
         <parallax :speed-factor="0.3" sectionClass="container" containerClass="background" breakpoint="(min-width: 80px)">
-          <img src="../assets/food-ground.jpg"width="1900">
+          <img src="../assets/food-ground.jpg" width="1900">
         </parallax>
       </NoSsr>
     </div>
@@ -22,13 +24,13 @@
         <hr/>
         <b-row class="links">
           <b-col id="log-col" cols="12" md="5">
-            <b-button id="loginButton" variant="info">Acceder</b-button>
+            <b-button id="loginButton" v-on:click="goToLogin()" variant="info">Acceder</b-button>
           </b-col>
           <b-col id="or-col" cols="12" md="2">
             -- O --
           </b-col>
           <b-col id="reg-col" cols="12" md="5">
-            <b-button id="registerButton" variant="success">Registrarse</b-button>
+            <b-button id="registerButton" v-on:click="goToRegist()" variant="success">Registrarse</b-button>
           </b-col>
         </b-row>
       </div>
@@ -114,6 +116,7 @@
       </div>
     </div>
   </section>
+  </div>
 </template>
 
 
@@ -122,6 +125,7 @@
 
 <script>
   import Parallax from "vue-parallaxy";
+  import NavbarNotLogged from '../components/NavbarNotLogged.vue'
 
   function fixBannerResize() {
       var title = document.getElementById('banner-title');
@@ -155,15 +159,20 @@
   }
 export default {
   components: {
-      Parallax
+      Parallax,
+      NavbarNotLogged
   },
 
   methods: {
-    changePage() {
-      console.log("Hey");
+    goToLogin() {
       this.$router.push({
-        name: "login",
-        params: { name: "world" }
+        name: 'login',
+      });
+    },
+
+    goToRegist() {
+      this.$router.push({
+        name: 'register',
       });
     }
   },

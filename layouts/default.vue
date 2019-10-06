@@ -1,7 +1,13 @@
 <template>
   <div class="backgroundImage">
-    <topnavbar id="navbar"/>
-    <nuxt id="top-margin"/>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <topnavbar/>
+    <nuxt class="top-margin"/>
     <bottomFooter/>
   </div>
 </template>
@@ -9,24 +15,13 @@
 <script type="text/javascript">
   import topnavbar from '../components/Navbar.vue';
   import bottomFooter from '../components/Footer.vue';
-
-  function fixMarginTop() {
-      var container = document.getElementById('top-margin');
-      var navbar = document.getElementById('navbar').getElementsByTagName('nav')[0];
-      var navbarHeight = navbar.offsetHeight;
-      container.style.marginTop = `${navbarHeight}px`;
-  }
-
   export default{
     components:{
       topnavbar, // register component
       bottomFooter
-    },
-    mounted() {
-      fixMarginTop();
-      window.addEventListener("resize", fixMarginTop);
     }
   }
+
 </script>
 
 <style>
@@ -79,6 +74,8 @@ html {
 }
 .top-margin {
   margin-top: 80px;
+  margin-bottom: 80px;
+  min-height: 320px;
 }
 /*
 .backgroundImage {
