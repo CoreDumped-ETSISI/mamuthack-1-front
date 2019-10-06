@@ -1,7 +1,9 @@
 <template>
 <div>
   <b-navbar fixed="top" toggleable="lg" type="light" variant="warning">
-    <b-navbar-brand href="/">MEET EAT</b-navbar-brand>
+    <b-navbar-brand href="/">
+      <img src="../assets/logoNavbar.png" width="100">
+    </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     
