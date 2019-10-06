@@ -59,7 +59,7 @@
         drop-placeholder="Drop file here..."
         accept=".png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .jpe, .JPE, .jif, .JIF, .jfif, .JFIF, .jfi, .JFI"
         name="image" class="mb-2"></b-form-file>
-			<b-button type="submit" block variant="warning">Registrate</b-button>
+			<b-button type="submit" block variant="warning">Crea Oferta</b-button>
     </b-form>
   </b-card>
 </div>

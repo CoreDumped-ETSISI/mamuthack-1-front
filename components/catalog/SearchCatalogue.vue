@@ -115,7 +115,7 @@ export default {
       "title":"Pollo con arroz",
       "photo":"https://www.chatelaine.com/wp-content/uploads/2019/01/canada-new-food-guide-2019.jpeg",
       "status":"pending",
-      "description":"Este es un plato de pollo con arroz que he hecho hoy para mi familia. Como mi abuela ha muerto repentinamente sobra 1 plato, ven ya a por el :)",
+      "description":"Este es un plato de pollo con arroz que he hecho hoy para mi familia. Ibamos a tirar el resto, pero puedes venir a por un plato",
       "contains":["frutos secos","marisco"],
       "labels":["pollo","arroz","receta"],
       "coordinates":[39.1111, -6.89798],
@@ -126,12 +126,48 @@ export default {
       "id":"123456",
       "title":"Patatas a la riojana",
       "photo":"https://cocina-casera.com/wp-content/uploads/2015/02/receta-patatas-riojana.jpg",
-      "status":"pending",
-      "description":"Esta es una antigua receta familiar de patatas a la riojana, me la enseñó mi abuela tras morir",
+      "status":"pub",
+      "description":"Esta es una antigua receta familiar de patatas a la riojana, me la enseñó mi abuela y ella querría que la compartiera.",
       "contains":["lacteos","carne"],
       "labels":["patatas","pimenton","carne"],
-      "coordinates":[39.1111, -6.89798],
+      "coordinates":[68.1111, -23.89798],
       "servings": 1,
+      "publisher": "SandroBlue"
+    })
+    this.offers.push({
+      "id":"1234567",
+      "title":"Menestra de verduras",
+      "photo":"https://unareceta.com/wp-content/uploads/2016/10/menestra-de-verduras.jpg",
+      "status":"pub",
+      "description":"Este es un revuelto de verduras que e sobró tras la cena de navidad",
+      "contains":["huevo"],
+      "labels":["menestra","verdura","brocoli"],
+      "coordinates":[67.1231, -9.6798],
+      "servings": 3,
+      "publisher": "AnitaPower"
+    })
+    this.offers.push({
+      "id":"12345678",
+      "title":"Tortilla de patata",
+      "photo":"https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2019/05/tortilla-espa%C3%B1ola.jpg",
+      "status":"pub",
+      "description":"Mis hijos no la quieren comer porque eché demasiados huevos, espero que alguien la pueda apreciar.",
+      "contains":["lacteos","huevo"],
+      "labels":["patatas","cebolla","huevo"],
+      "coordinates":[43.2345, -24.4567],
+      "servings": 1,
+      "publisher": "AngelaNovoa"
+    })
+    this.offers.push({
+      "id":"123456789",
+      "title":"Pimientos rellenos",
+      "photo":"https://www.cocinaabuenashoras.com/files/pimientos-rellenos-al-horno-copia-1-768x512.jpg",
+      "status":"pub",
+      "description":"Tengo un bar y siempre me sobran bastantes al terminar el día, podeis venir a por ellos antes de que se pasen",
+      "contains":["lacteos","marisco"],
+      "labels":["pimiento","atun","cebolla"],
+      "coordinates":[39.1111, -6.89798],
+      "servings": 23,
       "publisher": "SandroBlue"
     })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)

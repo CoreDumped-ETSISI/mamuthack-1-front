@@ -24,13 +24,13 @@
         <hr/>
         <b-row class="links">
           <b-col id="log-col" cols="12" md="5">
-            <b-button id="loginButton" v-on:click="goToLogin()" variant="info">Acceder</b-button>
+            <b-button id="loginButton" variant="info" href="login">Acceder</b-button>
           </b-col>
           <b-col id="or-col" cols="12" md="2">
             -- O --
           </b-col>
           <b-col id="reg-col" cols="12" md="5">
-            <b-button id="registerButton" v-on:click="goToRegist()" variant="success">Registrarse</b-button>
+            <b-button id="registerButton" variant="success" href="register">Registrarse</b-button>
           </b-col>
         </b-row>
       </div>
@@ -40,24 +40,25 @@
           <b-card class="c-card">
             <b-card-text>
               <p>
-                <i class="fas fa-hands-helping fa-10x"></i>
-              </p>Textp para manos
+                <i class="fas fa-trash-alt fa-10x"></i>
+              </p>Solo en España se desperdician <strong>7,7 millones</strong> de toneladas de comida al año
             </b-card-text>
           </b-card>
+
 
           <b-card class="c-card">
             <b-card-text>
               <p>
                 <i class="fas fa-utensils fa-10x"></i>
-              </p>Texto para utensilios
+              </p>Mientras tanto, <strong>1 de cada 9</strong> personas padecen hambre en el mundo
             </b-card-text>
           </b-card>
 
           <b-card class="c-card">
             <b-card-text>
               <p>
-                <i class="fas fa-trash-alt fa-10x"></i>
-              </p>Texto de basura
+                <i class="fas fa-hands-helping fa-10x"></i>
+              </p>WEat se presenta como un proyecto de apoyo real y concienciamiento a este problema
             </b-card-text>
           </b-card>
         </b-card-group>
@@ -125,7 +126,7 @@
 
 <script>
   import Parallax from "vue-parallaxy";
-  import NavbarNotLogged from '../components/NavbarNotLogged.vue'
+  import NavbarNotLogged from '../components/NavbarNotLogged.vue';
 
   function fixBannerResize() {
       var title = document.getElementById('banner-title');
