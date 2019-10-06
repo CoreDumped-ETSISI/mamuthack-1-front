@@ -82,20 +82,6 @@ export default {
             "status" : "pend",
             "claimant" : localStorage.user
           }).then(function(response){
-            var nuevoPedido = {
-              "id": localThis.id,
-              "description": localThis.description,
-              "photo": localThis.photo,
-              "status": localThis.status,
-              "labels": localThis.labels,
-              "title": localThis.title,
-              "servings": localThis.servings,
-              "coordinates": localThis.coordinates,
-              "contains": localThis.contains,
-              "publisher": localThis.publisher
-            }
-            localStorage.setItem('pedido', JSON.stringify(nuevoPedido));
-            //var pedido = JSON.parse(localStorage.getItem('pedido'));
             localThis.changePage()
         })
         .catch(function(err){
