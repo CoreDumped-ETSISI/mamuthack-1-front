@@ -5,25 +5,29 @@
       <b-card class="c-card">
         <b-row no-gutters>
           <b-col md="5">
-            <b-card-img :src="ofertas.photo" class="rounded-0"></b-card-img>
-            <b-button class="topmargin" variant="success" block>Confirmar</b-button>
+            <b-card-img :src="offers.photo" class="rounded-0"></b-card-img>
+            <b-button class="topmargin" variant="danger" block v-on:click="cancel()">Cancelar</b-button>
           </b-col>
           <b-col md="7">
-            <b-card-body :title="ofertas.title" :sub-title="getCoordinates">
-              <b-badge v-for="badge in ofertas.labels" v-bind:key="badge" variant="success">{{badge}}</b-badge>
-              <b-card-text class="limitLines">{{ ofertas.description }}</b-card-text>
+            <b-card-body :title="offers.title" :sub-title="getCoordinates">
+              <b-badge v-for="badge in offers.labels" v-bind:key="badge" variant="success">{{badge}}</b-badge>
+              <b-card-text class="limitLines">{{ offers.description }}</b-card-text>
               <b-list-group flush>
                 <b-list-group-item>
                   <strong>Publicado por:</strong>
-                  {{ ofertas.publisher }}
+                  {{ offers.publisher }}
                 </b-list-group-item>
                 <b-list-group-item>
                   <strong>Raciones:</strong>
-                  {{ ofertas.servings }}
+                  {{ offers.servings }}
+                </b-list-group-item>
+                <b-list-group-item>
+                  <strong>Estado:</strong>
+                  {{ estado[offers.status] }}
                 </b-list-group-item>
                 <b-list-group-item>
                   <strong>Contiene:</strong>
-                  <b-badge v-for="badge in ofertas.contains" v-bind:key="badge" variant="danger">{{badge}}</b-badge>
+                  <b-badge v-for="badge in offers.contains" v-bind:key="badge" variant="danger">{{badge}}</b-badge>
                 </b-list-group-item>
               </b-list-group>
             </b-card-body>
@@ -35,23 +39,55 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
-      ofertas: {},
+      estado: {"pub": "publicado", "pend": "pendiente", "cancel":"cancelado", "ok":"ok"},
+      offers: {},
       message: ''
     };
   },
   computed: {
       getCoordinates(){
-        return this.ofertas.coordinates
+        return this.offers.coordinates
       }
     },
   mounted() {
-    this.ofertas = JSON.parse(localStorage.getItem("ofertas"));
-    if(this.ofertas == null)
-        this.message = "No tienes ninguna oferta pendiente"
-    console.log(this.ofertas);
+    let localThis = this;
+    let found = false
+    axios.get(`http://localhost:3001/offer/getOfferPublisher/`+localStorage.user)
+    .then(response => {
+        console.log(response.data)
+        if(response.data.length>0)
+          for(var i = 0;i<response.data.length;i++){
+            if(response.data[i].status=="pend" || response.data[i].status=="pub"){
+              localThis.offers = response.data[i]
+              found = true
+              break
+            }
+          }
+        if(!found)
+          localThis.message = "No tienes ninguna oferta pendiente"
+      })
+      .catch(e => {
+        alert(e)
+        localThis.message = "No tienes ninguna oferta pendiente"
+      })
+  },
+  methods: {
+    cancel(){
+      let localThis = this
+      axios.patch( 'http://localhost:3001/offer/'+this.offers._id,
+          {
+            "status" : "cancel"
+          }).then(function(response){
+            localThis.message = "No tienes ninguna oferta pendiente"
+        })
+        .catch(function(err){
+          alert(err);
+        });
+    }
   }
 };
 </script>
