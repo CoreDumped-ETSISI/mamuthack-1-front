@@ -3,7 +3,7 @@
     <b-row no-gutters>
       <b-col md="5">
         <b-card-img :src=photo class="rounded-0"></b-card-img>
-        <b-button class="topmargin" variant="warning" v-on:click="checkUser()">Descarga</b-button>
+        <b-button class="topmargin" variant="warning" v-on:click="checkUser()">Reservar</b-button>
       </b-col>
       <b-col md="7">
         <b-card-body :title="title" :sub-title="getCoordinates">
