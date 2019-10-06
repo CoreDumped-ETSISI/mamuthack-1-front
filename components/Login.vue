@@ -12,7 +12,7 @@
         ></b-form-input>
       </b-form-group>
 
-     
+
 		<b-form-group id="input-group-2" label="Contraseña:" label-for="input-2">
         <b-form-input
           id="input-2"
@@ -27,7 +27,7 @@
 		<p class="font-small grey-text d-flex justify-content-end">
 		No estás registrado? <a href="register" class="blue-text ml-1"> Únete</a></p>
   </b-card>
-	
+
 </div>
 </template>
 
@@ -45,16 +45,16 @@
     },
     methods: {
       onSubmit(evt) {
-			evt.preventDefault()
+			evt.preventDefault();
 			this.login()
       },
 		login(){
 			if(this.form.username === "antonio03" && this.form.password === "antonio03"){
-				localStorage.user ="antonio03"
+				localStorage.user ="antonio03";
 				this.changePage()
 			}
 			else if(this.form.username === "sandra99" && this.form.password === "sandra99"){
-				localStorage.user="sandra99"
+				localStorage.user="sandra99";
 				this.changePage()
 			}
 			else
@@ -67,7 +67,7 @@
       }
     }
 }
-	
+
 </script>
 
 <style scoped>

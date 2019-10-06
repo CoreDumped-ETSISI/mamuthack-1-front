@@ -75,7 +75,7 @@ html {
 .top-margin {
   margin-top: 80px;
   margin-bottom: 80px;
-  min-height: 320px;
+  min-height: 80vh;
 }
 /*
 .backgroundImage {

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="small">
     <NavbarNotLogged></NavbarNotLogged>
     <Login></Login>
     </div>
