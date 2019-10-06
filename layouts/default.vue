@@ -2,7 +2,7 @@
   <div class="backgroundImage">
     <topnavbar/>
     <nuxt class="top-margin"/>
-    <bottomFooter/>*
+    <bottomFooter/>
   </div>
 </template>
 
