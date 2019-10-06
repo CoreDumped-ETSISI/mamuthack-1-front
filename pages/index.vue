@@ -8,13 +8,19 @@
     />
     <div>
       <div id="banner" class="banner">
-        <h1 class="title" id="banner-title">biblio-front</h1>
+        <img src="../assets/logo2.png" class="title" id="banner-title" alt="juejue"/>
         <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
-        <div class="links">
-          <a href="/login" class="button--grey">Acceder</a>
-          - OR -
-          <a href="/register" class="button--grey">Registrarse</a>
-        </div>
+        <b-row class="links">
+          <b-col id="log-col" cols="12" md="5">
+            <b-button id="loginButton" variant="info">Acceder</b-button>
+          </b-col>
+          <b-col id="or-col" cols="12" md="2">
+            - O -
+          </b-col>
+          <b-col id="reg-col" cols="12" md="5">
+            <b-button id="registerButton" variant="success">Registrarse</b-button>
+          </b-col>
+        </b-row>
       </div>
 
       <div class="info">
@@ -105,6 +111,37 @@
 
 
 <script>
+
+  function fixBannerResize() {
+      var title = document.getElementById('banner-title');
+      var subtitle = document.getElementById('banner-subtitle');
+      var width = window.innerWidth;
+      var logColumn = document.getElementById('log-col');
+      var regColumn = document.getElementById('reg-col');
+      var logButton = document.getElementById('loginButton');
+      var registerButton = document.getElementById('registerButton');
+      if(width <= 770) {
+          title.classList.remove('big-title');
+          title.classList.add('small-title');
+          subtitle.classList.remove('big-subtitle');
+          subtitle.classList.add('small-subtitle');
+          logColumn.style.textAlign = 'center';
+          regColumn.style.textAlign = 'center';
+          registerButton.style.fontSize = '22px';
+          logButton.style.fontSize = '22px';
+      } else {
+          title.classList.remove('small-title');
+          title.classList.add('big-title');
+          subtitle.classList.remove('small-subtitle');
+          subtitle.classList.add('big-subtitle');
+          logColumn.style.textAlign = 'right';
+          regColumn.style.textAlign = 'left';
+          registerButton.style.fontSize = '32px';
+          logButton.style.fontSize = '32px';
+      }
+      var regButtonWidth = registerButton.offsetWidth;
+      logButton.style.width = `${regButtonWidth}px`;
+  }
 export default {
   components: {},
 
@@ -118,22 +155,8 @@ export default {
     }
   },
     mounted() {
-      window.addEventListener("resize", function () {
-        var title = document.getElementById('banner-title');
-        var subtitle = document.getElementById('banner-subtitle');
-        var width = window.innerWidth;
-        if(width <= 750) {
-            title.classList.remove('big-title');
-            title.classList.add('small-title');
-            subtitle.classList.remove('big-subtitle');
-            subtitle.classList.add('small-subtitle');
-        } else {
-            title.classList.remove('small-title');
-            title.classList.add('big-title');
-            subtitle.classList.remove('small-subtitle');
-            subtitle.classList.add('big-subtitle');
-        }
-      });
+      fixBannerResize();
+      window.addEventListener("resize", fixBannerResize);
     }
 };
 </script>
@@ -149,21 +172,16 @@ export default {
 }
 
 .title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  margin: -8% auto -8% auto;
 }
 
 .big-title {
-  font-size: 100px;
+  width: 50%;
 }
 
 .small-title {
-  font-size: 60px;
+  width: 85%;
 }
 
 .subtitle {
@@ -192,10 +210,9 @@ export default {
 
 .banner {
   background: rgba(0, 0, 0, 0.16);
-  width: 100%;
-  margin-bottom: 15%;
-  padding: 50px 15px 100px;
-  margin-top: 15%;
+  width: 75%;
+  margin: 5% auto 15% auto;
+  padding: 5%;
   box-shadow: 0 0 15px 8px;
 }
 
@@ -211,5 +228,26 @@ export default {
 
 .c-card {
   box-shadow: 0 0 10px 1px;
+}
+
+#log-col {
+  text-align: right;
+}
+
+#or-col {
+  font-size: 175%;
+  white-space: nowrap;
+}
+
+#reg-col {
+  text-align: left;
+}
+
+.registerButton {
+  font-size: 32px;
+}
+
+.loginButton {
+  font-size: 38px;
 }
 </style>
