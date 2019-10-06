@@ -49,8 +49,14 @@
 			this.login()
       },
 		login(){
-			if(this.form.username === "antonio03" && this.form.password === "antonio03")
+			if(this.form.username === "antonio03" && this.form.password === "antonio03"){
+				localStorage.user ="antonio03"
 				this.changePage()
+			}
+			else if(this.form.username === "sandra99" && this.form.password === "sandra99"){
+				localStorage.user="sandra99"
+				this.changePage()
+			}
 			else
 				alert("Usuario o contraseña incorrectos")
 		},

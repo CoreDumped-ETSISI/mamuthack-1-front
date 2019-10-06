@@ -3,7 +3,7 @@
     <b-row no-gutters>
       <b-col md="5">
         <b-card-img :src=photo class="rounded-0"></b-card-img>
-        <b-button class="topmargin" variant="warning" v-on:click="claim()">Descarga</b-button>
+        <b-button class="topmargin" variant="warning" v-on:click="checkUser()">Descarga</b-button>
       </b-col>
       <b-col md="7">
         <b-card-body :title="title" :sub-title="getCoordinates">
@@ -16,6 +16,7 @@
           {{ this.description }}
         </b-card-text>
          <b-list-group flush>
+          <b-list-group-item><strong>Publicado por: </strong>{{ publisher }}</b-list-group-item>
           <b-list-group-item><strong>Raciones: </strong>{{ servings }}</b-list-group-item>
           <b-list-group-item><strong>Contiene: </strong>
             <b-badge 
@@ -49,9 +50,6 @@ export default {
         }
     },
     computed: {
-      getTag(){
-        return this.languages[this.language]
-      },
       getCoordinates(){
         return this.coordinates.join(", ")
       }
@@ -65,12 +63,49 @@ export default {
         title: String,
         servings: Number,
         coordinates: Array,
-        contains: Array
+        contains: Array,
+        publisher: String
     },
 
     methods: {
-      claim(){
-        alert("owo")
+      checkUser(){
+        if(localStorage.user != this.publisher){
+          this.saveStuff()
+        }
+        else
+          alert('No puedes reservar tu propia oferta')
+      },
+      saveStuff(){
+        let localThis = this
+        axios.patch( 'http://localhost:3001/offer/'+this.id,
+          {
+            "status" : "pend",
+            "claimant" : localStorage.user
+          }).then(function(response){
+            var nuevoPedido = {
+              "id": localThis.id,
+              "description": localThis.description,
+              "photo": localThis.photo,
+              "status": localThis.status,
+              "labels": localThis.labels,
+              "title": localThis.title,
+              "servings": localThis.servings,
+              "coordinates": localThis.coordinates,
+              "contains": localThis.contains,
+              "publisher": localThis.publisher
+            }
+            localStorage.setItem('pedido', JSON.stringify(nuevoPedido));
+            //var pedido = JSON.parse(localStorage.getItem('pedido'));
+            localThis.changePage()
+        })
+        .catch(function(err){
+          alert(err);
+        });
+      },
+      changePage(){
+        this.$router.push({
+            path: '/pendingPage'
+        })
       }
     }
 }

@@ -20,6 +20,7 @@
          <Offer 
             v-for="offer of searchAllFields" 
             v-bind:key="offer.id" 
+            :id=offer._id
             :photo=offer.photo 
             :title=offer.title
             :status=offer.status 
@@ -27,7 +28,9 @@
             :location=offer.location 
             :labels=offer.labels
             :servings=offer.servings
-            :coordinates=offer.coordinates>
+            :coordinates=offer.coordinates
+            :contains=offer.contains
+            :publisher=offer.publisher>
         </Offer>
     </b-card-group>
 </div>
@@ -83,7 +86,7 @@ export default {
               return true
              }
           }
-          else if(offer[categories[i]].toLowerCase().includes(localThis.text.toLowerCase())){
+          else if(offer[categories[i]]!=null && offer[categories[i]].toLowerCase().includes(localThis.text.toLowerCase())){
             localThis.noResult = false
             return true
           }
@@ -94,15 +97,30 @@ export default {
   },
 
   mounted() {
+    axios.get(`http://localhost:3001/offer`)
+      .then(response => {
+        console.log(response.data)
+        if(response.data.length>0)
+          for(var i = 0;i<response.data.length;i++){
+            if(response.data[i].status=="pub")
+              this.offers.push(response.data[i])
+          }
+        console.log(this.offers)
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
     this.offers.push({
       "id":"12345",
       "title":"Pollo con arroz",
       "photo":"https://www.chatelaine.com/wp-content/uploads/2019/01/canada-new-food-guide-2019.jpeg",
       "status":"pending",
       "description":"Este es un plato de pollo con arroz que he hecho hoy para mi familia. Como mi abuela ha muerto repentinamente sobra 1 plato, ven ya a por el :)",
-      "labels":["hola","adios"],
+      "contains":["frutos secos","marisco"],
+      "labels":["pollo","arroz","receta"],
       "coordinates":[39.1111, -6.89798],
-      "servings": 3
+      "servings": 3,
+      "publisher": "Mamuthack UAB"
     })
     this.offers.push({
       "id":"123456",
@@ -110,9 +128,11 @@ export default {
       "photo":"https://cocina-casera.com/wp-content/uploads/2015/02/receta-patatas-riojana.jpg",
       "status":"pending",
       "description":"Esta es una antigua receta familiar de patatas a la riojana, me la enseñó mi abuela tras morir",
-      "labels":["sin lactosa","celiaco"],
+      "contains":["lacteos","carne"],
+      "labels":["patatas","pimenton","carne"],
       "coordinates":[39.1111, -6.89798],
-      "servings": 1
+      "servings": 1,
+      "publisher": "SandroBlue"
     })
     /*axios.get(`http://localhost:3003/book/getAllBooks`)
     .then(response => {
