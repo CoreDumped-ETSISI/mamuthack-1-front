@@ -7,6 +7,7 @@ const _5efe2803 = () => interopDefault(import('..\\pages\\createOffer.vue' /* we
 const _99c01f28 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _3590dafa = () => interopDefault(import('..\\pages\\offerCatalogue.vue' /* webpackChunkName: "pages_offerCatalogue" */))
 const _1494ab09 = () => interopDefault(import('..\\pages\\pendingPage.vue' /* webpackChunkName: "pages_pendingPage" */))
+const _68461d23 = () => interopDefault(import('..\\pages\\pendingPagePublisher.vue' /* webpackChunkName: "pages_pendingPagePublisher" */))
 const _9fc77e20 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _1d5f9296 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _0d2c0a8e = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
@@ -106,6 +107,10 @@ export function createRouter() {
       path: "/pendingPage",
       component: _1494ab09,
       name: "pendingPage"
+    }, {
+      path: "/pendingPagePublisher",
+      component: _68461d23,
+      name: "pendingPagePublisher"
     }, {
       path: "/register",
       component: _9fc77e20,

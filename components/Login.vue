@@ -53,7 +53,7 @@
 				localStorage.user ="antonio03"
 				this.changePage()
 			}
-			else if(this.form.username === "antonio99" && this.form.password === "antonio99"){
+			else if(this.form.username === "sandra99" && this.form.password === "sandra99"){
 				localStorage.user="sandra99"
 				this.changePage()
 			}

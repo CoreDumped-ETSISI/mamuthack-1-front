@@ -20,6 +20,7 @@
          <Offer 
             v-for="offer of searchAllFields" 
             v-bind:key="offer.id" 
+            :id=offer._id
             :photo=offer.photo 
             :title=offer.title
             :status=offer.status 
@@ -98,8 +99,12 @@ export default {
   mounted() {
     axios.get(`http://localhost:3001/offer`)
       .then(response => {
+        console.log(response.data)
         if(response.data.length>0)
-          this.offers.push(response.data[0])
+          for(var i = 0;i<response.data.length;i++){
+            if(response.data[i].status=="pub")
+              this.offers.push(response.data[i])
+          }
         console.log(this.offers)
       })
       .catch(e => {
