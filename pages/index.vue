@@ -6,6 +6,13 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
+    <div class="background">
+      <NoSsr>
+        <parallax :speed-factor="0.3" sectionClass="container" containerClass="background" breakpoint="(min-width: 80px)">
+          <img src="https://images.unsplash.com/photo-1439478580632-ca2f5e3767af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="2000">
+        </parallax>
+      </NoSsr>
+    </div>
     <div>
       <div id="banner" class="banner">
         <img src="../assets/logo2.png" class="title" id="banner-title" alt="juejue"/>
@@ -111,6 +118,7 @@
 
 
 <script>
+  import Parallax from "vue-parallaxy";
 
   function fixBannerResize() {
       var title = document.getElementById('banner-title');
@@ -143,7 +151,9 @@
       logButton.style.width = `${regButtonWidth}px`;
   }
 export default {
-  components: {},
+  components: {
+      Parallax
+  },
 
   methods: {
     changePage() {
@@ -249,5 +259,13 @@ export default {
 
 .loginButton {
   font-size: 38px;
+}
+
+.background {
+  position: fixed;
+  z-index: -10;
+  background: #35495e;
+  width: 100vw;
+  height: 200vh;
 }
 </style>
