@@ -1,5 +1,5 @@
 <template>
-  <b-navbar class="footer" toggleable="lg">
+  <b-navbar class="footer" id="footer" toggleable="lg">
     <b-row>
       <b-col cols="0" sm="2"/>
       <b-col cols="12" sm="2">
@@ -41,7 +41,6 @@
     </b-row>
   </b-navbar>
 </template>
-
 
 <style scoped>
   .footer {

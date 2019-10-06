@@ -3,36 +3,36 @@
   <div class="row lowMargin">
     <div class="col-md-9 m-auto">
       <h1 class="text-center display-4 my-4">Busca una oferta</h1>
-      <multiselect 
-        v-model="value" 
-        tag-placeholder="Add this as new tag" 
-        placeholder="Introduce los parámetros de búsqueda" 
-        :options="options" 
-        :multiple="true" 
-        :taggable="true" 
+      <multiselect
+        v-model="value"
+        tag-placeholder="Add this as new tag"
+        placeholder="Introduce los parámetros de búsqueda"
+        :options="options"
+        :multiple="true"
+        :taggable="true"
         @tag="addTag">
       </multiselect>
       <b-form-input v-model="text" placeholder="Introduce los términos de búsqueda"></b-form-input>
     </div>
   </div>
     <h2 class="text-center noResult" v-if="noResult">No hay ningun libro con esos parámetros</h2>
-    <b-card-group columns>     
-         <Offer 
-            v-for="offer of searchAllFields" 
-            v-bind:key="offer.id" 
+    <b-row class="offers-row">
+         <Offer
+            v-for="offer of searchAllFields"
+            v-bind:key="offer.id"
             :id=offer._id
-            :photo=offer.photo 
+            :photo=offer.photo
             :title=offer.title
-            :status=offer.status 
-            :description=offer.description 
-            :location=offer.location 
+            :status=offer.status
+            :description=offer.description
+            :location=offer.location
             :labels=offer.labels
             :servings=offer.servings
             :coordinates=offer.coordinates
             :contains=offer.contains
             :publisher=offer.publisher>
         </Offer>
-    </b-card-group>
+    </b-row>
 </div>
 </template>
 
@@ -44,7 +44,7 @@ import Multiselect from 'vue-multiselect'
 export default {
   components: {
     Offer,
-    Multiselect 
+    Multiselect
   },
   methods: {
       addTag () {
@@ -191,11 +191,16 @@ export default {
 
 <style>
   .lowMargin {
-    margin-bottom: 20px !important;
+    margin-bottom: 20px;
+    width: 100vw;
   }
 
   .noResult {
     margin-top: 50px;
     color: grey
+  }
+
+  .offers-row {
+    max-width: 100vw;
   }
 </style>
