@@ -1,13 +1,18 @@
 <template>
+<div>
+    <NavbarNotLogged></NavbarNotLogged>
     <Login></Login>
+    </div>
 </template>
 
 <script>
 import Login from '~/components/Login.vue'
+import NavbarNotLogged from '~/components/NavbarNotLogged.vue'
 
 export default {
   components: {
-    Login
+    Login,
+    NavbarNotLogged
   }
 }
 </script>

@@ -10,7 +10,6 @@ const _f1019530 = () => interopDefault(import('..\\pages\\pendingPage.vue' /* we
 const _4a5064b8 = () => interopDefault(import('..\\pages\\pendingPagePublisher.vue' /* webpackChunkName: "pages_pendingPagePublisher" */))
 const _2559eaf1 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _4b7b2614 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
-const _13c37e62 = () => interopDefault(import('..\\pages\\upload.vue' /* webpackChunkName: "pages_upload" */))
 const _4f946a18 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -119,10 +118,6 @@ export function createRouter() {
       path: "/search",
       component: _4b7b2614,
       name: "search"
-    }, {
-      path: "/upload",
-      component: _13c37e62,
-      name: "upload"
     }, {
       path: "/",
       component: _4f946a18,

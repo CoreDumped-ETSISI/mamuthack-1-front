@@ -1,4 +1,6 @@
 <template>
+<div>
+  <NavbarNotLogged></NavbarNotLogged>
   <section class="container">
     <link
       rel="stylesheet"
@@ -98,6 +100,7 @@
       </div>
     </div>
   </section>
+  </div>
 </template>
 
 
@@ -105,8 +108,9 @@
 
 
 <script>
+import NavbarNotLogged from '~/components/NavbarNotLogged.vue'
 export default {
-  components: {},
+  components: {NavbarNotLogged},
 
   methods: {
     changePage() {

@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       pedido: {},
-      message: ''
+      message: 'Cargando'
     };
   },
   computed: {
@@ -66,6 +66,8 @@ export default {
           }
         if(!found)
           localThis.message = "No tienes ninguna oferta pendiente"
+        else
+          localThis.message = ""
       })
       .catch(e => {
         alert(e)
