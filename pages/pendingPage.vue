@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -46,8 +47,19 @@ export default {
       }
     },
   mounted() {
-    this.pedido = JSON.parse(localStorage.getItem("pedido"));
-    console.log(this.pedido);
+    let localThis = this
+    axios.get(`http://localhost:3001/offer/getClaimClaimant/`+localStorage.user)
+    .then(response => {
+        console.log(response.data)
+        if(response.data.length>0)
+          localThis.pedido = response.data[0]
+        else
+          localThis.message = "No tienes ninguna peticion pendiente"
+      })
+      .catch(e => {
+        alert(e)
+        localThis.message = "No tienes ninguna peticion pendiente"
+      })
   }
 };
 </script>
