@@ -6,10 +6,12 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
+    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'/>
     <div class="background">
       <NoSsr>
         <parallax :speed-factor="0.3" sectionClass="container" containerClass="background" breakpoint="(min-width: 80px)">
-          <img src="https://images.unsplash.com/photo-1439478580632-ca2f5e3767af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" width="2000">
+          <img src="../assets/food-ground.jpg"width="1900">
         </parallax>
       </NoSsr>
     </div>
@@ -17,12 +19,13 @@
       <div id="banner" class="banner">
         <img src="../assets/logo2.png" class="title" id="banner-title" alt="juejue"/>
         <h2 class="subtitle" id="banner-subtitle">Biblioteca digital Core Dumped, sección frontend</h2>
+        <hr/>
         <b-row class="links">
           <b-col id="log-col" cols="12" md="5">
             <b-button id="loginButton" variant="info">Acceder</b-button>
           </b-col>
           <b-col id="or-col" cols="12" md="2">
-            - O -
+            -- O --
           </b-col>
           <b-col id="reg-col" cols="12" md="5">
             <b-button id="registerButton" variant="success">Registrarse</b-button>
@@ -144,8 +147,8 @@
           subtitle.classList.add('big-subtitle');
           logColumn.style.textAlign = 'right';
           regColumn.style.textAlign = 'left';
-          registerButton.style.fontSize = '32px';
-          logButton.style.fontSize = '32px';
+          registerButton.style.fontSize = '25px';
+          logButton.style.fontSize = '25px';
       }
       var regButtonWidth = registerButton.offsetWidth;
       logButton.style.width = `${regButtonWidth}px`;
@@ -197,7 +200,8 @@ export default {
 .subtitle {
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
+  font-family: 'Architects Daughter';
+  color: black;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
@@ -219,10 +223,10 @@ export default {
 }
 
 .banner {
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.67);
   width: 75%;
   margin: 5% auto 15% auto;
-  padding: 5%;
+  padding: 5% 5% 2.5% 5%;
   box-shadow: 0 0 15px 8px;
 }
 
@@ -253,11 +257,11 @@ export default {
   text-align: left;
 }
 
-.registerButton {
+#registerButton {
   font-size: 32px;
 }
 
-.loginButton {
+#loginButton {
   font-size: 38px;
 }
 
